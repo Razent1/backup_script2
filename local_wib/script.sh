@@ -24,8 +24,6 @@ case $COMPRESSIONALGO in
     zip -r $FILENAME $DIRBACKUP 2>> error.log ;;
   bzip2)
     bzip2 $DIRBACKUP 2>> error.log ;;
-  # 7z)
-  #   7z a $FILENAME $DIRBACKUP &> error.log ;;
   none)
     echo "None parametr has been choosen" ;;
   *)
@@ -43,5 +41,5 @@ elif [ -e "$FILENAME.bz2" ]; then
     openssl enc -aes-256-cbc -in "$FILENAME.bz2" -out "$FILENAME.bz2" 2>> error.log
 fi
 
-#We can do it also thought pipes, like 
+#We can do it also thought pipes, like
 # tar -czf $FILENAME $DIRBACKUP 2>> error.log | openssl enc -aes-256-cbc -out "$FILENAME" 2>> error.log;;
